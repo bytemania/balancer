@@ -1,5 +1,7 @@
 subprojects {
     apply plugin: 'java'
+    apply plugin: 'jacoco'
+    apply plugin: 'checkstyle'
 
     group = 'com.github.bytemania.balancer'
     version = '0.0.1-SNAPSHOT'
@@ -7,6 +9,24 @@ subprojects {
 
     repositories {
         mavenCentral()
+    }
+
+    dependencies {
+        compileOnly 'org.projectlombok:lombok:1.18.22'
+        annotationProcessor 'org.projectlombok:lombok:1.18.22'
+
+        testCompileOnly 'org.projectlombok:lombok:1.18.22'
+        testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
+
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+        testImplementation 'org.assertj:assertj-core:3.22.0'
+    }
+
+    test {
+        finalizedBy jacocoTestReport // report is always generated after tests run
+    }
+    jacocoTestReport {
+        dependsOn test // tests are required to run before generating the report
     }
 
     tasks.named('test') {
