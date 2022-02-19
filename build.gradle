@@ -1,0 +1,15 @@
+subprojects {
+    apply plugin: 'java'
+
+    group = 'com.github.bytemania.balancer'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = '11'
+
+    repositories {
+        mavenCentral()
+    }
+
+    tasks.named('test') {
+        useJUnitPlatform()
+    }
+}
