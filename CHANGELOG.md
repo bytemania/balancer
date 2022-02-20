@@ -1,9 +1,9 @@
-#CHANGELOG
+# CHANGELOG
 
 ## [UNRELEASED] - YYYY-MM-DD
 
 ### Added
-- Added Feature 1 (#ISSUE)
+- Add Balancing by Market Cap \#1
 
 ### Changed
 
